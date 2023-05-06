@@ -6,7 +6,7 @@ import MailIcon from "@mui/icons-material/Mail"
 
 function Footer() {
   return (
-    <div className="row d-flex align-items-center styleFooter">
+    <div className="row d-flex align-items-center styleFooter position-relative">
       <div className="col-md-4 py-5 text-center">
         <a href="/" className="text-decoration-none bg-logo rounded-circle p-4">
           <strong>A-A</strong>
@@ -16,12 +16,13 @@ function Footer() {
       <div className="col-md-4 text-center py-5">
         <p className="text-secondary">This is an open source project.</p>
         <p className="text-secondary">Created by Abderazak Amiar 2023.</p>
-        <p className="text-secondary">
-          Find the source on
-          <a href="https://github.com/Abderazak-Amiar">
-            <GitHubIcon fontSize="large" />
-          </a>
-        </p>
+        <p className="text-secondary">Find the source on </p>
+        <a href="https://github.com/Abderazak-Amiar/myPortfolio">
+          <GitHubIcon
+            fontSize="medium"
+            htmlColor="grey"
+          />
+        </a>
       </div>
       <div className="col-md-4 py-5 d-flex justify-content-evenly">
         <div>

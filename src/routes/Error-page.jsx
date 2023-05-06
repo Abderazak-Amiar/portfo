@@ -7,7 +7,7 @@ function ErrorPage(){
     console.log(error);
 
     return (
-        <div id="error-page" className="container mt-5 pt-5 h-100">
+        <div id="error-page" className="container pt-5">
           <h1>Oops!</h1>
           <p>Sorry, an unexpected error has occurred.</p>
           <p>

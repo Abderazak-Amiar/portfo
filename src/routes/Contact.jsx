@@ -2,7 +2,7 @@ import React from "react";
 import ContactForm from "../components/ContactForm";
 function Contact(){return(
 
-    <div className="container  mt-5 pt-5 h-100">
+    <div className="container pt-5 px-5">
         <ContactForm />
     </div>
 

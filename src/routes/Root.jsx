@@ -9,7 +9,7 @@ function Root(){
         <>
 
         
-        <div className="container bg-light  mt-5 homepage h-100">
+        <div className="container bg-light  mt-5 homepage px-5">
             <div className="row justify-content-between align-items-center">
                 <div className="col-md-5 p-3">
                     <h5>Hey, I am Abderazak</h5>
