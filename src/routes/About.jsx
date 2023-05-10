@@ -14,7 +14,7 @@ function About() {
           <img className="w-100 h-auto " src="./images/desktop.png" alt="" />
         </div>
         <div className="col-md-5 p-3">
-          <h1>About Me</h1>
+          <h3 className="textSubHeader">About Me</h3>
           <h1>
             I create <span className="webapp-span">web applications</span>
           </h1>
@@ -25,7 +25,7 @@ function About() {
             with a piece of code.
           </p>
           <button type="button" className="btn btn-primary">
-            Get in touch
+          <a href="https://www.linkedin.com/in/zakamiar/" className="nav-link px-2">Get in touch</a>
           </button>
         </div>
       </div>
