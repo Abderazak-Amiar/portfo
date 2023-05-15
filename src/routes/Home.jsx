@@ -3,7 +3,7 @@ import About from "./About";
 import Portfolio from "./Portfolio";
 import Contact from "./Contact";
 import Expertise from "./Expertise";
-function Root(){
+function Home(){
     
     return(
         <>
@@ -16,7 +16,7 @@ function Root(){
                     <h1>I create <span className="webapp-span">web applications</span></h1>
                     <p>I am a software engineer, focused on the web development with all related JavaScript technologies.
                         I love web design and I like to build prototypes that comply with the UX process and make them real with a piece of code.</p>
-                <button type="button" className="btn btn-primary"><a href="https://www.linkedin.com/in/zakamiar/" className="nav-link px-2">Get in touch</a></button>
+                {/* <button type="button" className="btn btn-primary"><a href="https://www.linkedin.com/in/zakamiar/" className="nav-link px-2">Get in touch</a></button> */}
                 </div>
                 <div className="col-md-5 bgimagehome rounded-circle m-3">
                     <img className="w-75 h-auto" src="./images/zak.png" alt="" />
@@ -32,4 +32,4 @@ function Root(){
         
     )
 }
-export default Root;
+export default Home;

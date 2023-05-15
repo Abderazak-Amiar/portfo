@@ -70,7 +70,7 @@ function ContactForm() {
   }
   
   return (
-    <div>
+    <div className="pt-5 mt-5">
       <div className="text-center">
         <h3 className="textSubHeader">Get In Touch</h3>
         <h1>Contact Me</h1>

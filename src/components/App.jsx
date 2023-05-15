@@ -1,60 +1,74 @@
-import React from "react"
-import Root from "../routes/Root"
+import React, { useState } from "react"
+//IMPORT ROUTES
+import Home from "../routes/Home"
 import Contact from "../routes/Contact"
 import About from "../routes/About"
 import Portfolio from "../routes/Portfolio"
 import ErrorPage from "../routes/Error-page"
-import {
-  createBrowserRouter,
-  RouterProvider,
-  RouteMatch,
-} from "react-router-dom"
 import Expertise from "../routes/Expertise"
-import Admin from "../routes/admin"
+//IMPORT COMPONENTS
 import Footer from "./Footer"
 import Header from "./Header"
+//IMPORT ADMIN ROUTES
+import Admin from "../admin_routes/Admin"
+import Dashboard from "../admin_routes/Dashboard"
+import Message from "../admin_routes/message_routes/Message"
+import AdminPortfolio from "../admin_routes/portfolio_routes/AdminPortfolio"
+import Skills from "../admin_routes/skills_routes/Skills"
+import Profile from "../admin_routes/Profile"
+import Settings from "../admin_routes/Settings"
+import Signout from "../admin_routes/Signout"
+//IMPORT SKILLS ADMIN ROUTES
+import AddSkills from "../admin_routes/skills_routes/AddSkills"
+import SkillsList from "../admin_routes/skills_routes/skillsList"
+//IMPORT REACT ROUTER DOM
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+  useMatch,
+  BrowserRouter,
+} from "react-router-dom"
+import AddPortfolio from "../admin_routes/portfolio_routes/AddPortfolio"
+import PortfolioList from "../admin_routes/portfolio_routes/PortfolioList"
+//END IMPORT
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/portfolio",
-    element: <Portfolio />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/about",
-    element: <About />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/contact",
-    element: <Contact />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/expertise",
-    element: <Expertise />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/admin",
-    element: <Admin />,
-    errorElement: <ErrorPage />,
-  },
-])
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+      <Route path="contact" element={<Contact />} />
+      <Route path="expertise" element={<Expertise />} />
+      <Route path="portfolio" element={<Portfolio />} />
+      <Route path="error" element={<ErrorPage />} />
+      <Route path="admin" element={<Admin />}>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="message" element={<Message />} />
+        <Route path="portfolio" element={<AdminPortfolio />}>
+          <Route path="addportfolio" element={<AddPortfolio />} />
+          <Route path="portfoliolist" element={<PortfolioList />} />
+        </Route>
+        <Route path="skills" element={<Skills />}>
+          <Route path="addskills" element={<AddSkills />} />
+          <Route path="skillsList" element={<SkillsList />} />
+        </Route>
+        <Route path="profile" element={<Profile />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="signout" element={<Signout />} />
+      </Route>
+    </Route>
+  )
+)
 
-const currentRoute = router.state.location.pathname
-console.log("==>", currentRoute)
 function App() {
+  const [currentRoute, setCurrentRoute] = useState(router.state.location.pathname)
   return (
     <React.StrictMode>
-      {!(currentRoute === "/admin") && <Header />}
+      {(!currentRoute.includes("/admin")) && <Header />}
       <RouterProvider router={router}></RouterProvider>
-      {!(currentRoute === "/admin") && <Footer />}
+      {(!currentRoute.includes("/admin")) && <Footer />}
     </React.StrictMode>
   )
 }
