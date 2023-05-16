@@ -2,7 +2,7 @@ import React from "react"
 import { NavLink, Outlet } from "react-router-dom"
 function Skills() {
   return (
-    <div>
+    <div className="container">
       <div className="row d-flex flex-column">
         <div className="col">
           <ul className="nav nav-tabs">

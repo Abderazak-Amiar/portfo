@@ -25,7 +25,6 @@ function Expertise() {
     return (
       <div className={`container d-flex align-items-center ${style} pt-5  px-5`}>
         
-        <i className="fa-solid fa-star fa-2xl"></i>
         <div className={`row my-5 justify-content-between`}>
         <h3 className="textSubHeader">Skills</h3>
         <h1 className="mb-5">My Expertise</h1>

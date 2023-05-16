@@ -4,7 +4,6 @@ import { Outlet } from 'react-router-dom'
 function Message() {
   return (
     <div>
-    Message
     </div>
   )
 }

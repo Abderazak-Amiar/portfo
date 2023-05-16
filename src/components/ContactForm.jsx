@@ -81,7 +81,7 @@ function ContactForm() {
         <div className="form-group">
           <div className="row mb-3">
             <div className="col-md-6">
-              <label htmlFor="first-name mb-2">First Name</label>
+              <label htmlFor="first-name">First Name</label>
               <input onChange={handleChange} value={message.fName} type="text" className="form-control  mt-2 styleInputFormContact" name="fName" id="first-name" />
             </div>
             <div className="col-md-6">

@@ -19,8 +19,11 @@ import Profile from "../admin_routes/Profile"
 import Settings from "../admin_routes/Settings"
 import Signout from "../admin_routes/Signout"
 //IMPORT SKILLS ADMIN ROUTES
-import AddSkills from "../admin_routes/skills_routes/AddSkills"
-import SkillsList from "../admin_routes/skills_routes/skillsList"
+import AddSkills, { addSkill, sendSkill } from "../admin_routes/skills_routes/AddSkills"
+import SkillsList, { skillsLoader } from "../admin_routes/skills_routes/skillsList"
+//IMPORT PORTFOLIO ADMIN ROUTES 
+import AddPortfolio from "../admin_routes/portfolio_routes/AddPortfolio"
+import PortfolioList from "../admin_routes/portfolio_routes/PortfolioList"
 //IMPORT REACT ROUTER DOM
 import {
   createBrowserRouter,
@@ -30,8 +33,7 @@ import {
   useMatch,
   BrowserRouter,
 } from "react-router-dom"
-import AddPortfolio from "../admin_routes/portfolio_routes/AddPortfolio"
-import PortfolioList from "../admin_routes/portfolio_routes/PortfolioList"
+
 //END IMPORT
 
 const router = createBrowserRouter(
@@ -51,8 +53,8 @@ const router = createBrowserRouter(
           <Route path="portfoliolist" element={<PortfolioList />} />
         </Route>
         <Route path="skills" element={<Skills />}>
-          <Route path="addskills" element={<AddSkills />} />
-          <Route path="skillsList" element={<SkillsList />} />
+          <Route path="addskills" element={<AddSkills />} action={sendSkill} />
+          <Route path="skillsList" element={<SkillsList />} loader={skillsLoader} />
         </Route>
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />
