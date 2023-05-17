@@ -1,37 +1,79 @@
-import React from "react"
+import React, {useState} from "react"
 import axios from "axios"
-import { useLoaderData, NavLink, Link } from "react-router-dom"
-function SkillsList() {
-  const skills = useLoaderData()
+import { useLoaderData, useNavigate} from "react-router-dom"
+import DataList from "../../components/DataList"
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
-  console.log("===>", skills)
+function SkillsList() {
+  const toastConfirm = {
+    position: "top-right",
+    autoClose: false,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    }
+    const toastOption = {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      }
+  const skills = useLoaderData()
+  const navigate = useNavigate();
+
+  function deleteSkill(id){
+
+     axios.delete("http://localhost:3001/skill/"+id).then(res => {
+   
+        navigate("/admin/skills/skillsList");
+        toast.success("Deleted Successfully !", toastOption);
+  })
+    .catch(err=>{
+      console.log(err);
+    })
+   
+  }
+  
+  const Msg = ({closeToast, id}) => (
+    <div>
+      
+      <h5>Confirm ?</h5>
+      <div className="d-flex justify-content-around">
+      <button className="btn btn-outline-danger" onClick={()=> {deleteSkill(id)} }>YES</button>
+      <button className="btn btn-outline-success" onClick={closeToast}>NO</button>
+    </div>
+    </div>
+    
+  )
+
+  function confirmDeletion(id){
+
+    toast.warning(<Msg id={id} />, toastConfirm); 
+
+  }
+  // function editSkill(id){
+    
+  //   axios.patch("http://localhost:3001/skill/"+id, skillEdited , {headers : {"Content-Type" :"application/x-www-form-urlencoded"}}).then(res=>{
+  //     console.log(res);
+  //   }).catch(err=>{
+  //     console.log(err);
+  //   });
+
+  // }
+  
 
   return (
     <div className="list-group">
-      {skills.map((skill) => (
-        <Link
-          key={skill._id}
-          to={skill.link}
-          className="list-group-item list-group-item-action d-flex gap-3 py-3"
-          aria-current="true"
-        >
-          <i className={skill.icon}></i>
-          <div className="d-flex gap-2 w-100 justify-content-between">
-            <div>
-              <h6 className="mb-0">{skill.title}</h6>
-              <p className="mb-0 opacity-75">{skill.content}</p>
-            </div>
-            <div>
-              <button className="btn btn-outline-success m-1">
-                <i class="bi bi-pencil"></i>
-              </button>
-              <button className="btn btn-outline-danger m-1">
-                <i class="bi bi-trash"></i>
-              </button>
-            </div>
-          </div>
-        </Link>
-      ))}
+    <ToastContainer />
+      {skills.map((skill) => <DataList  key={skill._id} skill = {skill} delete={confirmDeletion}/> )}
     </div>
   )
 }

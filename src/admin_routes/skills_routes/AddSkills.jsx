@@ -25,7 +25,7 @@ function AddSkills() {
               />
             </div>
             <div className="col-md-6">
-              <label htmlFor="skillIcon">Bootstrap/FontAwsome Icon</label>
+              <label htmlFor="skillIcon">Bootstrap/FontAwsome class Icon</label>
               <input
                 type="text"
                 className="form-control  mt-2 styleInputFormContact"
