@@ -22,7 +22,7 @@ import Signout from "../admin_routes/Signout"
 import AddSkills, { addSkill, sendSkill } from "../admin_routes/skills_routes/AddSkills"
 import SkillsList, { skillsLoader } from "../admin_routes/skills_routes/skillsList"
 //IMPORT PORTFOLIO ADMIN ROUTES 
-import AddPortfolio from "../admin_routes/portfolio_routes/AddPortfolio"
+import AddPortfolio, { sendPortfolio } from "../admin_routes/portfolio_routes/AddPortfolio"
 import PortfolioList from "../admin_routes/portfolio_routes/PortfolioList"
 //IMPORT REACT ROUTER DOM
 import {
@@ -49,7 +49,7 @@ const router = createBrowserRouter(
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="message" element={<Message />} />
         <Route path="portfolio" element={<AdminPortfolio />}>
-          <Route path="addportfolio" element={<AddPortfolio />} />
+          <Route path="addportfolio" element={<AddPortfolio />} action={sendPortfolio} />
           <Route path="portfoliolist" element={<PortfolioList />} />
         </Route>
         <Route path="skills" element={<Skills />}>
