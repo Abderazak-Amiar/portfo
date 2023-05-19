@@ -146,3 +146,7 @@ h6 {
   color: #232536;
   opacity: 0.5;
 }
+
+img#imageCustomSize {
+  width: 5%;
+}

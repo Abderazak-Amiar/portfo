@@ -6,14 +6,14 @@ function AdminPortfolio() {
     <div className="row d-flex flex-column">
       <div className="col">
         <ul className="nav nav-tabs">
-          <li className="nav-item">
-            <NavLink to="addportfolio" className="nav-link">
-              <i className="bi bi-plus-circle"></i> ADD
+        <li className="nav-item">
+            <NavLink to="portfoliolist" className="nav-link">
+              <i className="bi bi-list-ul"></i> PORTFOLIO LIST
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="portfoliolist" className="nav-link">
-              <i className="bi bi-list-ul"></i> PORTFOLIO
+            <NavLink to="addportfolio" className="nav-link">
+              <i className="bi bi-plus-circle"></i> ADD
             </NavLink>
           </li>
         </ul>

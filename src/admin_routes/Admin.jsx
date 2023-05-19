@@ -23,12 +23,12 @@ function Admin() {
               </NavLink>
             </li>
             <li>
-              <NavLink to="skills" className="nav-link link-body-emphasis">
+              <NavLink to="skills/skillsList" className="nav-link link-body-emphasis">
                 SKILLS
               </NavLink>
             </li>
             <li>
-              <NavLink to="portfolio" className="nav-link link-body-emphasis">
+              <NavLink to="portfolio/portfoliolist" className="nav-link link-body-emphasis">
                 PORTFOLIO
               </NavLink>
             </li>

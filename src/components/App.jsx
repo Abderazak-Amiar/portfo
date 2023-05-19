@@ -21,9 +21,10 @@ import Signout from "../admin_routes/Signout"
 //IMPORT SKILLS ADMIN ROUTES
 import AddSkills, { addSkill, sendSkill } from "../admin_routes/skills_routes/AddSkills"
 import SkillsList, { skillsLoader } from "../admin_routes/skills_routes/skillsList"
+import EditSkill from "../admin_routes/skills_routes/EditSkill"
 //IMPORT PORTFOLIO ADMIN ROUTES 
 import AddPortfolio, { sendPortfolio } from "../admin_routes/portfolio_routes/AddPortfolio"
-import PortfolioList from "../admin_routes/portfolio_routes/PortfolioList"
+import PortfolioList, { portfolioLoader } from "../admin_routes/portfolio_routes/PortfolioList"
 //IMPORT REACT ROUTER DOM
 import {
   createBrowserRouter,
@@ -33,6 +34,7 @@ import {
   useMatch,
   BrowserRouter,
 } from "react-router-dom"
+
 
 //END IMPORT
 
@@ -50,11 +52,12 @@ const router = createBrowserRouter(
         <Route path="message" element={<Message />} />
         <Route path="portfolio" element={<AdminPortfolio />}>
           <Route path="addportfolio" element={<AddPortfolio />} action={sendPortfolio} />
-          <Route path="portfoliolist" element={<PortfolioList />} />
+          <Route path="portfoliolist" element={<PortfolioList />} loader={portfolioLoader} />
         </Route>
         <Route path="skills" element={<Skills />}>
           <Route path="addskills" element={<AddSkills />} action={sendSkill} />
           <Route path="skillsList" element={<SkillsList />} loader={skillsLoader} />
+          <Route path="editSkill/:id" element={<EditSkill />}/>
         </Route>
         <Route path="profile" element={<Profile />} />
         <Route path="settings" element={<Settings />} />
@@ -67,11 +70,11 @@ const router = createBrowserRouter(
 function App() {
   const [currentRoute, setCurrentRoute] = useState(router.state.location.pathname)
   return (
-    <React.StrictMode>
+    <>
       {(!currentRoute.includes("/admin")) && <Header />}
       <RouterProvider router={router}></RouterProvider>
       {(!currentRoute.includes("/admin")) && <Footer />}
-    </React.StrictMode>
+    </>
   )
 }
 

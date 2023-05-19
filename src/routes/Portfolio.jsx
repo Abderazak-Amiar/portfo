@@ -24,7 +24,7 @@ function Portfolio() {
 
   return (
     <div className={`container ${style} d-flex align-items-center pt-5  px-5`}>
-      <div>
+      <div className='container-fluid'>
         <div className="row d-flex justify-content-between">
           <div className="col-md-6  text-sm-center  text-md-start  text-lg-start px-0">
             <h1 className="my-5">Portfolio</h1>
@@ -36,7 +36,7 @@ function Portfolio() {
           </div>
         </div>
 
-        <div className="row my-5 justify-content-between">
+        <div className="row my-5 justify-content-evenly bg-info">
           {portfolios.map((item) => (
             <PortfolioCard key={item._id} id={item._id} data={item} />
           ))}
