@@ -34,6 +34,7 @@ import {
   useMatch,
   BrowserRouter,
 } from "react-router-dom"
+import EditPortfolio from "../admin_routes/portfolio_routes/EditPortfolio"
 
 
 //END IMPORT
@@ -53,6 +54,7 @@ const router = createBrowserRouter(
         <Route path="portfolio" element={<AdminPortfolio />}>
           <Route path="addportfolio" element={<AddPortfolio />} action={sendPortfolio} />
           <Route path="portfoliolist" element={<PortfolioList />} loader={portfolioLoader} />
+          <Route path="editPortfolio/:id" element={<EditPortfolio />} />
         </Route>
         <Route path="skills" element={<Skills />}>
           <Route path="addskills" element={<AddSkills />} action={sendSkill} />

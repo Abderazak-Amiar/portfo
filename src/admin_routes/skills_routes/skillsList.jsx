@@ -8,9 +8,8 @@ import {toastOptions} from "../../utils/toastOptions";
 import EditSkill from "./EditSkill";
 
 function SkillsList() {
-  const location = useLocation()
+  
   const API_URL = process.env.REACT_APP_API_URL;
-  const [newSkill, setNewSkill] = useState();
   const skills = useLoaderData();
   const navigate = useNavigate();
 
