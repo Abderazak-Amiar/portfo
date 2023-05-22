@@ -1,0 +1,152 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+}
+body {
+  /* background-image: url("https://www.transparenttextures.com/patterns/back-pattern.png"); */
+  font-family: "Roboto", sans-serif !important;
+  background-color: white;
+}
+.header-menu {
+  padding: 0px 85.3333px;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 5.33333px 80px rgba(0, 0, 0, 0.1);
+}
+
+.webapp-span {
+  color: #5e3bee;
+}
+
+.bgimagehome {
+  background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png");
+}
+
+.bgExpertiseCard {
+  background-color: #f5fcff;
+  border-bottom: 4px solid transparent;
+}
+.bgExpertiseCard:hover {
+  border-bottom: 4px solid #5e3bee;
+}
+.aStyle {
+  text-decoration: none;
+  color: #1c1e53;
+}
+
+.iconStyle {
+  background-color: black;
+  padding: 5px;
+}
+.iconStyleExpertise {
+  padding: 3px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+  color: #e62872;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #282938 !important;
+}
+
+.stylePortfolioCard {
+  background: #ffffff;
+  box-shadow: 0px 0px 32px rgba(0, 0, 0, 0.15);
+}
+.porfolioBtnVisiteMyWebsite {
+  background: #e62872;
+  padding: 13px 21px;
+  border: none;
+  box-shadow: 0px 1.33333px 2.66667px rgba(16, 24, 40, 0.05);
+  border-radius: 10px;
+  color: white;
+}
+.btnSubmitContactForm {
+  background: #5e3bee;
+  border-radius: 8px;
+  border: solid 1px transparent;
+  padding: 18px 42px;
+  color: white;
+}
+.btnSubmitContactForm:hover {
+  background: white;
+  border-radius: 8px;
+  border: solid 1px #5e3bee;
+  padding: 18px 42px;
+  color: #5e3bee;
+}
+.styleInputFormContact {
+  border: 1px solid #5e3bee !important;
+  border-radius: 8px !important;
+}
+.bg-logo {
+  transition: 750ms;
+  border: solid 1px #5e3bee;
+  color: #5e3bee;
+}
+.bg-logo:hover {
+  transition: 750ms;
+  border: solid 1px #5e3bee;
+  color: white;
+  background-color: #5e3bee;
+}
+.ulHeaderstyle {
+  color: #1c1e53 !important;
+  display: inline-block;
+}
+
+.ulHeaderstyle::after {
+  content: "";
+  width: 0px;
+  height: 1px;
+  display: block;
+  background: #5e3bee;
+  transition: 300ms;
+}
+.ulHeaderstyle:hover::after {
+  width: 100%;
+}
+.ulHeaderstyle:hover {
+  color: #5e3bee !important;
+}
+.headerStyle {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 21.3333px;
+  line-height: 150%;
+}
+.btnContactHeader {
+  color: #5e3bee !important;
+  border-color: #5e3bee;
+}
+.btnContactHeader:hover {
+  background-color: #5e3bee !important;
+  color: white !important;
+}
+.styleFooter {
+  background-color: #f5fcff;
+}
+.textPrimary {
+  color: #5e3bee !important;
+}
+.textSecondary {
+  color: #1c1e53 !important;
+}
+.textSubHeader {
+  color: #232536;
+  opacity: 0.5;
+}
+
+img#imageCustomSize {
+  width: 5%;
+}
