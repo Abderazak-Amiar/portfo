@@ -6,16 +6,14 @@ import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import {toastOptions} from "../../utils/toastOptions";
 import EditSkill from "./EditSkill";
-
 function SkillsList() {
-  
-  const API_URL = process.env.REACT_APP_API_URL;
+  const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
   const skills = useLoaderData();
   const navigate = useNavigate();
 
   function deleteSkill(id){
 
-     axios.delete(API_URL+"skill/"+id).then(res => {
+     axiosInstance.delete("skill/"+id).then(res => {
    
         navigate("/admin/skills/skillsList");
         toast.success("Deleted Successfully !", toastOptions.toastConfig);
@@ -76,8 +74,8 @@ function SkillsList() {
 }
 
 export const skillsLoader = async () => {
-  const API_URL = process.env.REACT_APP_API_URL
-  const res = await axios.get(API_URL+"skill")
+  const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
+  const res = await axiosInstance.get("skill")
   //  console.log("===>",res.json());
   return res.data
 }

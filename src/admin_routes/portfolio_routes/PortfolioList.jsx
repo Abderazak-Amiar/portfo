@@ -5,14 +5,16 @@ import DataListPortfolio from "../../components/DataListPortfolio"
 import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import {toastOptions} from "../../utils/toastOptions";
+
 function PortfolioList() {
- 
+
+  const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
   const portfolios = useLoaderData()
   const navigate = useNavigate()
-  const API_URL = process.env.REACT_APP_API_URL;
+
   function deletePortfolio(id) {
-    axios
-      .delete(API_URL+"portfolio/" + id)
+    axiosInstance
+      .delete("portfolio/" + id)
       .then((res) => {
         navigate("/admin/portfolio/portfolioList")
         toast.success("Deleted Successfully !", toastOptions.toastConfig)
@@ -84,8 +86,8 @@ function PortfolioList() {
 }
 
 export const portfolioLoader = async () => {
-  const API_URL = process.env.REACT_APP_API_URL
-  const res = await axios.get(API_URL+"portfolio")
+  const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
+  const res = await axiosInstance.get("portfolio")
   return res.data
 }
 

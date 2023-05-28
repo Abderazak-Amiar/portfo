@@ -30,6 +30,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
+  Router,
   RouterProvider,
   useMatch,
   BrowserRouter,
@@ -70,12 +71,13 @@ const router = createBrowserRouter(
 )
 
 function App() {
-  const [currentRoute, setCurrentRoute] = useState(router.state.location.pathname)
+  // const [currentRoute, setCurrentRoute] = useState(router.state.location.pathname)
   return (
     <>
-      {(!currentRoute.includes("/admin")) && <Header />}
+    
+      {/* {(!currentRoute.includes("/admin")) && <Header />} */}
       <RouterProvider router={router}></RouterProvider>
-      {(!currentRoute.includes("/admin")) && <Footer />}
+      {/* {(!currentRoute.includes("/admin")) && <Footer />} */}
     </>
   )
 }

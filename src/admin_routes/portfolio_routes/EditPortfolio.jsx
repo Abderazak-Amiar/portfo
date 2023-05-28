@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import {useLocation} from "react-router-dom"
-
 function EditPortfolio() {
 
+  const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
   const [image, setImage] = useState()
   const location = useLocation()
   const [portfolio, setportfolio] = useState({
@@ -13,11 +13,10 @@ function EditPortfolio() {
     image: "",
   })
   const portfolioID = location.state.id
-  const API_URL = process.env.REACT_APP_API_URL
 
   useEffect(() => {
-    axios
-      .get(API_URL + "portfolio/" + portfolioID)
+    axiosInstance
+      .get("portfolio/" + portfolioID)
       .then((res) => {
         setportfolio(res.data)
         console.log("===>",res);
@@ -41,8 +40,8 @@ function EditPortfolio() {
   }
 
   function sendNewportfolio() {
-    axios
-      .patch("http://localhost:3001/portfolio/" + portfolio._id, portfolio, {
+    axiosInstance
+      .patch("portfolio/" + portfolio._id, portfolio, {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       })
       .then((res) => {
@@ -58,12 +57,13 @@ function EditPortfolio() {
     setImage(file)
   }
 
-  function uploadFile() {
+  function uploadFile(id) {
     const file = new FormData()
-    file.append("image", image)
+    file.append("image", image);
+    file.append("id_profile", id)
 
-    axios
-      .post("http://localhost:3001/upload", file, {
+    axiosInstance
+      .post(process.env.REACT_APP_API_URL+"upload", file, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -132,7 +132,7 @@ function EditPortfolio() {
       </div>
       <div>
         <button
-          onClick={()=>{sendNewportfolio(); uploadFile()}}
+          onClick={()=>{uploadFile(portfolioID); sendNewportfolio()}}
           className="btn btn-outline-primary btnContactHeader px-2"
         >
           <i className="bi bi-pencil"></i> Edit

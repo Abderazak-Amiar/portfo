@@ -1,7 +1,6 @@
 import React, {useState} from "react"
 import axios from "axios";
 function ContactForm() {
-
   const [message, setMessage] = useState( {
     fName : "",
     lName : "",
@@ -41,7 +40,7 @@ function ContactForm() {
     async function sendMessage(){
     await  axios({
         method: 'post',
-        url: 'http://localhost:3001/contact',
+        url: process.env.REACT_APP_API_URL+'contact',
         data: message,
         headers : {"Content-Type" :"application/x-www-form-urlencoded"}
       })

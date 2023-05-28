@@ -69,7 +69,7 @@ function AddSkills() {
 }
 
 export const sendSkill = async({request}) => {
-
+const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
 const data = await request.formData();
 
 const submission = {
@@ -79,7 +79,7 @@ const submission = {
   icon : data.get('icon'),
 }
 //SEND SKILL TO THE API
-axios.post("http://localhost:3001/skill", submission, {headers : {"Content-Type" :"application/x-www-form-urlencoded"}}).then(res =>{
+axiosInstance.post("skill", submission, {headers : {"Content-Type" :"application/x-www-form-urlencoded"}}).then(res =>{
   console.log("===> Skill ADDED successfully !", res);
 }).catch(err=>{
   console.log("===>",err);

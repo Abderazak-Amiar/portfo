@@ -17,6 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "babel-plugin-macros": "^3.1.0",
+    "env-cmd": "^10.1.0",
     "googleapis": "^105.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,8 +29,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "env-cmd -f .env.dev  react-scripts start",
+    "build": "env-cmd -f .env.prod react-scripts build",
+    "serve": "react-dotenv && serve build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -52,7 +54,8 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["API_URL"]
+    "whitelist": [
+      "API_URL"
+    ]
   }
-  
 }

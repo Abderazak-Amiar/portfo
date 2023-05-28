@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { Form, useLocation, useNavigate } from "react-router-dom"
-
 function EditSkill() {
 
-
+  const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
   const location = useLocation()
   const navigate = useNavigate()
   const [skill, setSkill] = useState({title:"", content:"", link:"", icon:""}) 
   const skillID = location.state.id;
-  const API_URL = process.env.REACT_APP_API_URL
  
 
     useEffect(()=>{
 
-        axios.get(API_URL+"skill/"+skillID).then(res=>{
+        axiosInstance.get("skill/"+skillID).then(res=>{
         
             setSkill(res.data)
 
@@ -45,7 +43,7 @@ if(name === "title"){
 
 function sendNewSkill(){
 
-  axios.patch("http://localhost:3001/skill/"+skill._id, skill , {headers : {"Content-Type" :"application/x-www-form-urlencoded"}}).then(res=>{
+  axiosInstance.patch("skill/"+skill._id, skill , {headers : {"Content-Type" :"application/x-www-form-urlencoded"}}).then(res=>{
       console.log(res);
       
     }).catch(err=>{

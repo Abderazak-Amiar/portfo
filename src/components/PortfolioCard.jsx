@@ -2,7 +2,7 @@ import React from 'react'
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 function PortfolioCard({data}) {
 
-  const imageURL = "http://localhost:3001/uploads/images/"+data.image
+  const imageURL = process.env.REACT_APP_API_URL+"uploads/images/"+data.image
 
   return (
     <div className='col-md-3 rounded stylePortfolioCard px-0 mb-3'>

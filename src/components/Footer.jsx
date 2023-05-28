@@ -3,14 +3,15 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import GitHubIcon from "@mui/icons-material/GitHub"
 import WhatsAppIcon from "@mui/icons-material/WhatsApp"
 import MailIcon from "@mui/icons-material/Mail"
+import { NavLink } from "react-router-dom"
 
 function Footer() {
   return (
     <div className="row d-flex align-items-center styleFooter position-relative">
       <div className="col-md-4 py-5 text-center">
-        <a href="/" className="text-decoration-none bg-logo rounded-circle p-4">
+        <NavLink to="/" className="text-decoration-none bg-logo rounded-circle p-4">
           <strong>A-A</strong>
-        </a>
+        </NavLink>
       </div>
 
       <div className="col-md-4 text-center py-5">

@@ -1,7 +1,6 @@
 import React from "react"
 function DataListPortfolio(props) {
 
-  const API_URL = process.env.REACT_APP_API_URL;
 
     function deletePortfolio(){
         props.delete(props.data._id)
@@ -14,7 +13,7 @@ function DataListPortfolio(props) {
   return (
       <div className="list-group-item list-group-item-action d-flex gap-3 py-3">
 
-      <img id="imageCustomSize"  src={API_URL+'uploads/images/'+props.data.image} alt="" />
+      <img id="imageCustomSize"  src={process.env.REACT_APP_API_URL+'uploads/images/'+props.data.image} alt="" />
      
      
         <div className="d-flex gap-2 w-100 justify-content-between">

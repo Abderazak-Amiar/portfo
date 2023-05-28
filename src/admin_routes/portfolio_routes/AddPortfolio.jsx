@@ -15,9 +15,9 @@ function AddPortfolio() {
 
     const file = new FormData()
     file.append("image", image)
-
-    axios
-      .post("http://localhost:3001/upload", file, {
+    const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
+    axiosInstance
+      .post("upload", file, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
@@ -93,6 +93,8 @@ function AddPortfolio() {
   )
 }
 export const sendPortfolio = async ({ request }) => {
+  const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
+
   const data = await request.formData()
 
   const submission = {
@@ -102,8 +104,8 @@ export const sendPortfolio = async ({ request }) => {
     image: data.get("image"),
   }
   //SEND SKILL TO THE API
-  axios
-    .post("http://localhost:3001/portfolio", submission, {
+  axiosInstance
+    .post("portfolio", submission, {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
     })
     .then((res) => {
