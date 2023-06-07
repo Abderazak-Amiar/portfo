@@ -43,9 +43,10 @@ if(name === "title"){
 
 function sendNewSkill(){
 
-  axiosInstance.patch("skill/"+skill._id, skill , {headers : {"Content-Type" :"application/x-www-form-urlencoded"}}).then(res=>{
-      console.log(res);
-      
+  const token = localStorage.getItem('accessToken')
+
+  axiosInstance.patch("skill/"+skill._id, skill , {headers : {"Content-Type" :"application/x-www-form-urlencoded", "Authorization" : `Bearer ${token}`}}).then(res=>{
+      console.log(res);     
     }).catch(err=>{
       console.log(err);
     });
@@ -104,8 +105,8 @@ function sendNewSkill(){
                 className="form-control  mt-2 styleInputFormContact"
                 name="content"
                 id="skillDescription"
-                 defaultValue={skill.content}
-                 onChange={handleChange}
+                defaultValue={skill.content}
+                onChange={handleChange}
               />
             </div>
           </div>

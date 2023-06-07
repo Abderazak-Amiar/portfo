@@ -36,7 +36,9 @@ import {
   BrowserRouter,
 } from "react-router-dom"
 import EditPortfolio from "../admin_routes/portfolio_routes/EditPortfolio"
-
+import PrivacyPolicy from "../routes/Privacy-policy"
+import ContactUs from "../routes/Contact-us"
+import Login,{sendLogin} from "../routes/Login"
 
 //END IMPORT
 
@@ -48,6 +50,9 @@ const router = createBrowserRouter(
       <Route path="contact" element={<Contact />} />
       <Route path="expertise" element={<Expertise />} />
       <Route path="portfolio" element={<Portfolio />} />
+      <Route path="contactus" element={<ContactUs />} />
+      <Route path="login" element={<Login />} action={sendLogin} />
+      <Route path="privacy-policy" element={<PrivacyPolicy />} />
       <Route path="error" element={<ErrorPage />} />
       <Route path="admin" element={<Admin />}>
         <Route path="dashboard" element={<Dashboard />} />

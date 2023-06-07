@@ -1,1 +1,2 @@
+Get-ChildItem -Path D:\WebDev\portfolio\PROD_PUSH\portfolio-prod\ -Include * -File -Recurse | foreach { $_.Delete()}
 Copy-Item -Path D:\WebDev\portfolio\build\* -Destination D:\WebDev\portfolio\PROD_PUSH\portfolio-prod\ -Recurse -force

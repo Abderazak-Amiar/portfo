@@ -44,7 +44,7 @@ function Portfolio() {
             </div>
           </div>
 
-          <div className="row my-5 justify-content-evenly bg-info">
+          <div className="row my-5 justify-content-evenly">
             {portfolios.map((item) => (
               <PortfolioCard key={item._id} id={item._id} data={item} />
             ))}

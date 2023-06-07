@@ -16,9 +16,10 @@ function AddPortfolio() {
     const file = new FormData()
     file.append("image", image)
     const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
+    const token = localStorage.getItem('accessToken')
     axiosInstance
       .post("upload", file, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { "Content-Type": "multipart/form-data", "Authorization" : `Bearer ${token}`},
       })
       .then((res) => {
         console.log("===> Image Uploaded successfuly !", res)
@@ -104,12 +105,13 @@ export const sendPortfolio = async ({ request }) => {
     image: data.get("image"),
   }
   //SEND SKILL TO THE API
+  const token = localStorage.getItem('accessToken')
   axiosInstance
     .post("portfolio", submission, {
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: { "Content-Type": "application/x-www-form-urlencoded", "Authorization" : `Bearer ${token}` },
     })
     .then((res) => {
-      console.log("===> PORTFOLIO ADDED successfully !")
+      console.log("===> PORTFOLIO ADDED successfully !",res)
     })
     .catch((err) => {
       console.log("===>", err)

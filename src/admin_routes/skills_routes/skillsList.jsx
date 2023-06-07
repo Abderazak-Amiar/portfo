@@ -12,8 +12,9 @@ function SkillsList() {
   const navigate = useNavigate();
 
   function deleteSkill(id){
-
-     axiosInstance.delete("skill/"+id).then(res => {
+      const token = localStorage.getItem('accessToken')
+     axiosInstance.delete("skill/"+id,
+      {headers: { "Content-Type": "application/x-www-form-urlencoded", "Authorization" : `Bearer ${token}`}}).then(res => {
    
         navigate("/admin/skills/skillsList");
         toast.success("Deleted Successfully !", toastOptions.toastConfig);

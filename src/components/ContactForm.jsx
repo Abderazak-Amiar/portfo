@@ -76,7 +76,7 @@ function ContactForm() {
         <p>Please feel free to contact me if you need any further information.</p>
       </div>
 
-      <form method="post">
+    
         <div className="form-group">
           <div className="row mb-3">
             <div className="col-md-6">
@@ -134,8 +134,7 @@ function ContactForm() {
           Submit
         </button>
         </div>
-       
-      </form>
+
     </div>
   )
 }

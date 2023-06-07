@@ -12,7 +12,7 @@ function Home() {
     <>
       <Header />
       <div className="container bg-light  mt-5 homepage px-5">
-        <div className="row justify-content-between align-items-center">
+        <div className="row justify-content-between align-items-center mt-5">
           <div className="col-md-5 p-3">
             <h5>Hey, I am Abderazak</h5>
             <h1>
@@ -27,7 +27,7 @@ function Home() {
             {/* <button type="button" className="btn btn-primary"><a href="https://www.linkedin.com/in/zakamiar/" className="nav-link px-2">Get in touch</a></button> */}
           </div>
           <div className="col-md-5 bgimagehome rounded-circle m-3">
-            <img className="w-75 h-auto" src="./images/zak.png" alt="" />
+            <img className="w-75 h-auto" src="./images/desktop.png" alt="" />
           </div>
         </div>
       </div>

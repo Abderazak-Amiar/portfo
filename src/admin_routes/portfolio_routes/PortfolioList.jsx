@@ -13,8 +13,9 @@ function PortfolioList() {
   const navigate = useNavigate()
 
   function deletePortfolio(id) {
+    const token = localStorage.getItem('accessToken')
     axiosInstance
-      .delete("portfolio/" + id)
+      .delete("portfolio/" + id,{headers: {"Authorization" : `Bearer ${token}`}})
       .then((res) => {
         navigate("/admin/portfolio/portfolioList")
         toast.success("Deleted Successfully !", toastOptions.toastConfig)

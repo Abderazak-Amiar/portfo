@@ -22,6 +22,7 @@ function Header(){
             <li><NavLink to="/portfolio" className="nav-link px-2 ulHeaderstyle">Portfolio</NavLink></li>
             <li><NavLink to="/about" className="nav-link px-2 ulHeaderstyle">About Me</NavLink></li>
             <li><NavLink to="/admin" className="nav-link px-2 ulHeaderstyle">Admin</NavLink></li>
+            <li><NavLink to="/login" className="nav-link px-2 ulHeaderstyle">Login</NavLink></li>
           </ul>
 
           <div className="col-lg-1 col-md- col-sm- text-center">

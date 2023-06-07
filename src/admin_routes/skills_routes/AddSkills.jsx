@@ -78,8 +78,10 @@ const submission = {
   link : data.get('link'),
   icon : data.get('icon'),
 }
+console.log(submission);
 //SEND SKILL TO THE API
-axiosInstance.post("skill", submission, {headers : {"Content-Type" :"application/x-www-form-urlencoded"}}).then(res =>{
+const token = localStorage.getItem('accessToken')
+axiosInstance.post("skill", submission, {headers : {"Content-Type" :"application/x-www-form-urlencoded", "Authorization" : `Bearer ${token}`}}).then(res =>{
   console.log("===> Skill ADDED successfully !", res);
 }).catch(err=>{
   console.log("===>",err);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 import {useLocation} from "react-router-dom"
 function EditPortfolio() {
-
+  const token = localStorage.getItem('accessToken')
   const axiosInstance = axios.create({baseURL : process.env.REACT_APP_API_URL })
   const [image, setImage] = useState()
   const location = useLocation()
@@ -40,9 +40,10 @@ function EditPortfolio() {
   }
 
   function sendNewportfolio() {
+   
     axiosInstance
       .patch("portfolio/" + portfolio._id, portfolio, {
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        headers: { "Content-Type": "application/x-www-form-urlencoded", "Authorization" : `Bearer ${token}` },
       })
       .then((res) => {
         console.log(res)
@@ -62,9 +63,10 @@ function EditPortfolio() {
     file.append("image", image);
     file.append("id_profile", id)
 
+    console.log("==>", file)                                   ;
     axiosInstance
       .post(process.env.REACT_APP_API_URL+"upload", file, {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: { "Content-Type": "multipart/form-data", "Authorization" : `Bearer ${token}`},
       })
       .then((res) => {
         console.log("===> Image Uploaded successfuly !", res)
