@@ -9,11 +9,11 @@ function Login() {
     <h1 className="h3 mb-3 fw-normal">Login</h1>
 
     <div className="form-floating">
-      <input type="text" name="user" className="form-control" id="floatingInput" placeholder="User Name"/>
+      <input type="text" name="user" className="form-control" id="floatingInput" placeholder="admin"/>
       <label htmlFor="floatingInput">User</label>
     </div>
     <div className="form-floating">
-      <input type="password" name="password" className="form-control" id="floatingPassword" placeholder="Password"/>
+      <input type="password" name="password" className="form-control" id="floatingPassword" placeholder="123"/>
       <label htmlFor="floatingPassword">Password</label>
     </div>
     <div className="form-check text-start my-3">
